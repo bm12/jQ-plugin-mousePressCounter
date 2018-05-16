@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+	<div class="container">
+		<span class="wrap_count3" data-id="that">
+			<button class="size_inc">+</button>
+			<input type="number" class="size_usr" data-min="0" data-max="100">
+			<button class="size_dec">-</button>
+		</span>
+		<span class="wrap_count" data-id="that">
+			<button class="size_inc">+</button>
+			<input type="number" class="size_usr" data-min="0" data-max="100">
+			<button class="size_dec">-</button>
+		</span>
+		<span class="wrap_count3">
+			<button class="size_inc">+</button>
+			<input type="number" class="size_usr" data-min="0" data-max="100">
+			<button class="size_dec">-</button>
+		</span>
+		<span class="wrap_count2">
+			<button class="size_inc">+</button>
+			<input type="number" class="size_usr" data-min="0" data-max="100">
+			<button class="size_dec">-</button>
+		</span>
+		<div></div>
+		<span class="wrap_count">
+			<button class="count_inc">+</button>
+			<input type="number" class="count_inp" data-min="0" data-max="50">
+			<button class="count_dec">-</button>
+		</span>
+		<span class="wrap_count">
+			<button class="count_inc">+</button>
+			<input type="number" class="count_inp" data-min="0" data-max="50">
+			<button class="count_dec">-</button>
+		</span>
+	</div>
+	
+	<script src="js/jquery.2.2.4.min.js"></script>
+	<script src="js/mousePressPlugin.js"></script>
+<!--	<script src="js/script.js"></script>-->
+	<script>
+		$('.wrap_count').mousePress();
+		$('.wrap_count3').mousePress({
+			inc: '.size_inc',
+	 		dec: '.size_dec',
+			counter:'.size_usr',
+			min: 5,
+			max: 100,
+			timeOut: 0,
+			timeStep: 5
+		});
+	</script>
+</body>
+</html>
