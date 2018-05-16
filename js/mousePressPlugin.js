@@ -1,5 +1,5 @@
 (function($) {
-	$.fn.mousePress = function(options) {
+	$.fn.mousePressCounter = function(options) {
 		var settings = $.extend({
 			inc: '.count_inc',
 	 		dec: '.count_dec',
@@ -13,85 +13,61 @@
 		var pressed = false;
 		var iteration = 0;
 		var minMoreZero = settings.min > 0;
-		settings.timeOut = settings.timeOut < 4 ? 4 : settings.timeOut;
-		
+		var stepIter = 5;
+		var timeOut = settings.timeOut;
+
+		function stepper(checkRange, direction, nextStepFn, $counter) {
+			if (!checkRange()) return;
+
+			$counter.val(function(i, val) {
+				return Number(val) + direction;
+			});
+			iteration++;
+
+			if (iteration > stepIter && timeOut){
+				timeOut = timeOut - settings.timeStep;
+				stepIter += 5;
+				console.log(timeOut + " timeOut");
+			}
+
+			timer = (iteration === 1) ? setTimeout(nextStepFn, 250) : setTimeout(nextStepFn, timeOut);
+		}
+
+		function offTimeOut(){
+			clearTimeout(timer);
+			iteration = 0;
+			stepIter = 5;
+			timeOut = settings.timeOut;
+		}
+
 		return this.each(function() {
 			var $inc = $(settings.inc, this);
 			var $dec = $(settings.dec, this);
 			var $counter = $(settings.counter, this);
-			
-			console.log($(this).attr('data-id'));
-			
-			var stepIterInc = 5;
-			var stepIterDec = 5;
-			var newTimeOutInc = settings.timeOut;
-			var newTimeOutDec = settings.timeOut;
-			
-			minMoreZero ? $counter.val(settings.min) : minMoreZero;
-			
-			$inc.off('.mousePress');
-			$dec.off('.mousePress');
-			
-			
-			$inc.on('mousedown.mousePress',function() {
-				doInc();
-			});
-			$inc.on('mouseup.mousePress',offTimeOut);
-			$inc.on('mouseleave.mousePress',offTimeOut);
 
-			$dec.on('mousedown.mousePress',function() {
-				doDec();
-			});
-			$dec.on('mouseup.mousePress',offTimeOut);
-			$dec.on('mouseleave.mousePress',offTimeOut);
-			
+			var doInc = function() {
+				stepper(function() {
+					return $counter.val() < settings.max;
+				}, 1, doInc, $counter);
+			};
+			var doDec = function() {
+				stepper(function() {
+					return $counter.val() > settings.min;
+				}, -1, doDec, $counter);
+			};
 
-			function doInc() {
-				if ($counter.val() < settings.max) {
-					$counter.val(function(i, val) {
-						return Number(val) + 1;
-					});
-					iteration++;
-//					console.log(iteration);
-					
-					if (iteration > stepIterInc && newTimeOutInc > 4){
-						newTimeOutInc = (newTimeOutInc-settings.timeStep) >= 4 ? (newTimeOutInc-settings.timeStep) : 4;
-						stepIterInc += 5;
-						console.log(newTimeOutInc+" time");
-					}
+			if (minMoreZero) $counter.val(settings.min);
 
-					(iteration === 1) ? timer = setTimeout(doInc, 250) : timer = setTimeout(doInc, newTimeOutInc);
+			$inc.off('.mousePressCounter');
+			$dec.off('.mousePressCounter');
 
-				}
-			}
-			function doDec() {
-				if ($counter.val() > settings.min){
-					
-					$counter.val(function(i, val) {
-						return Number(val) - 1;
-					});
-					iteration++;
-					
-//					console.log(iteration);
-					
-					if (iteration > stepIterDec && newTimeOutDec > 4){
-						newTimeOutDec = (newTimeOutDec-settings.timeStep) >= 4 ? (newTimeOutDec-settings.timeStep) : 4;
-						stepIterDec += 5;
-						console.log(newTimeOutInc+" time");
-					}
+			$inc.on('mousedown.mousePressCounter', doInc);
+			$inc.on('mouseup.mousePressCounter', offTimeOut);
+			$inc.on('mouseleave.mousePressCounter', offTimeOut);
 
-					(iteration === 1) ? timer = setTimeout(doDec, 250) : timer = setTimeout(doDec, newTimeOutDec);
-
-				}
-			}
-			
-			function offTimeOut(){
-				clearTimeout(timer);
-				iteration = 0;
-				stepIterInc = stepIterDec = 5;
-				newTimeOutInc = newTimeOutDec = settings.timeOut;
-			}
-		})
-
+			$dec.on('mousedown.mousePressCounter', doDec);
+			$dec.on('mouseup.mousePressCounter', offTimeOut);
+			$dec.on('mouseleave.mousePressCounter', offTimeOut);
+		});
 	};
 })(jQuery);
