@@ -2,7 +2,7 @@
     $.fn.mousePressCounter = function(options) {
         var settings = $.extend({
             inc: '.count_inc',
-             dec: '.count_dec',
+            dec: '.count_dec',
             counter:'.count_inp',
             min: 0,
             max: Infinity,
@@ -12,7 +12,6 @@
         var timer;
         var pressed = false;
         var iteration = 0;
-        var minMoreZero = settings.min > 0;
         var stepIter = 5;
         var timeOut = settings.timeOut;
 
@@ -44,6 +43,8 @@
             var $inc = $(settings.inc, this);
             var $dec = $(settings.dec, this);
             var $counter = $(settings.counter, this);
+            
+            if ($counter.length === 0) return;
 
             var doInc = function() {
                 stepper(function() {
@@ -56,7 +57,11 @@
                 }, -1, doDec, $counter);
             };
 
-            if (minMoreZero) $counter.val(settings.min);
+            $counter.val(settings.min);
+
+            if ($counter.prop('type') === 'number') {
+                $counter.attr('min', settings.min).attr('max', settings.max);
+            }
 
             $inc.off('.mousePressCounter');
             $dec.off('.mousePressCounter');
