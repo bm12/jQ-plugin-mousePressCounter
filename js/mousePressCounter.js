@@ -10,7 +10,6 @@
             timeStep: 10
         }, options);
         var timer;
-        var pressed = false;
         var iteration = 0;
         var stepIter = 5;
         var timeOut = settings.timeOut;
