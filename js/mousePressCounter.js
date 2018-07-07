@@ -1,9 +1,9 @@
 (function($) {
     $.fn.mousePressCounter = function(options) {
         var settings = $.extend({
-            inc: '.count_inc',
-            dec: '.count_dec',
-            counter:'.count_inp',
+            inc: '.counter-inc',
+            dec: '.counter-dec',
+            counter:'.counter-input',
             min: 0,
             max: Infinity,
             timeOut: 100,
