@@ -11,8 +11,8 @@ body {   width: 100%; }
 
 .size_inc,
 .size_dec,
-.count_inc,
-.count_dec {
+.counter-inc,
+.counter-dec {
     display: block;
     position: absolute;
     top: 11px;
@@ -29,20 +29,20 @@ body {   width: 100%; }
     font-size: 1.25em;
 }
 .size_inc,
-.count_inc {
+.counter-inc {
     right: 1px;
     font-family: fontello;
     line-height: 17px;
     /* border-radius: 0 5px 5px 0; */
 }
 .size_dec,
-.count_dec {
+.counter-dec {
     left: 1px;
     line-height: 16px;
     /* border-radius: 5px 0 0 5px; */
 }
 .size_usr,
-.count_inp {
+.counter-input {
     position: absolute;
     top: 10px;
     left: 50%;
