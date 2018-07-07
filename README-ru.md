@@ -1,4 +1,6 @@
 # Mouse Press Counter
+[EN-README](./README.md)
+
 Mouse Press Counter это jQuery плагин для увеличения/уменьшения числа в input'е при нажатии и удержании левой кнопки мыши.
 
 Протестированно в jQuery версии 1.7.0
