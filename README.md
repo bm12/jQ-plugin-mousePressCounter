@@ -1,6 +1,8 @@
 # Mouse Press Counter
 [RU-README](./README-ru.md)
 
+[DEMO](https://bm12.github.io/jQ-plugin-mousePressCounter/)
+
 Mouse Press Counter is a jQuery plugin to increase / decrease the number in the input when you press and hold the left mouse button.
 
 Tested with jQuery versions 1.7.0
