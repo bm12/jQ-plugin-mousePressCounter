@@ -5,7 +5,7 @@
 
 Mouse Press Counter is a jQuery plugin to increase / decrease the number in the input when you press and hold the left mouse button.
 
-Tested with jQuery versions 1.7.0
+Tested with jQuery version 1.7.0
 ## Usage
 You can simply include the plugin file after jQuery:
 ```html
@@ -14,7 +14,7 @@ You can simply include the plugin file after jQuery:
 ```
 and init Mouse Press Counter with one line:
 ```javascript
-$('.wrap_count').mousePressCounter();
+$('.wrapper').mousePressCounter();
 ```
 ## Options
 You're also able to use some of the options that let you customize it as you wish or keep them in the default value:
