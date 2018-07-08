@@ -25,7 +25,6 @@
             if (iteration > stepIter && timeOut){
                 timeOut = timeOut - settings.timeStep;
                 stepIter += 5;
-                console.log(timeOut + " timeOut");
             }
 
             timer = (iteration === 1) ? setTimeout(nextStepFn, 250) : setTimeout(nextStepFn, timeOut);
