@@ -2,19 +2,19 @@
 <html lang="ru">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Mouse Press Counter - Demo</title>
-	<link rel="stylesheet" href="dist/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="dist/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="dist/style.min.css">
+    <meta charset="UTF-8">
+    <title>Mouse Press Counter - Demo</title>
+    <link rel="stylesheet" href="dist/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="dist/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="dist/style.min.css">
 </head>
 
 <body>
-	<div class="container">
-		<h1 class="text-center plugin__title">Mouse Press Counter - Demo</h1>
-		<div class="example-wrapper">
-			<div class="example wrap-count-1">
-				<p class="example__title">Set a custom classes and set min/max value:</p>
+    <div class="container">
+        <h1 class="text-center plugin__title">Mouse Press Counter - Demo</h1>
+        <div class="example-wrapper">
+            <div class="example wrap-count-1">
+                <p class="example__title">Set a custom classes and set min/max value:</p>
                 
                 <div class="row">
                     <div class="col-md-6">
@@ -38,7 +38,7 @@ $('.wrap-count-1').mousePressCounter({
 
             </div>
             
-			<div class="example wrap-count-2">
+            <div class="example wrap-count-2">
                 <p class="example__title">Increment the number with a linear speed:</p>
 
                 <div class="row">
@@ -59,7 +59,7 @@ $('.wrap-count-2').mousePressCounter({
 
             </div>
             
-			<div class="example wrap-count-3">
+            <div class="example wrap-count-3">
                 <p class="example__title">Increasing speed every 5 iteration on 10ms:</p>
 
                 <div class="row">
@@ -79,7 +79,7 @@ $('.wrap-count-3').mousePressCounter({
                 </div>
             </div>
             
-			<div class="example wrap-count-4">
+            <div class="example wrap-count-4">
                 <div class="example__title">Default counter:</div>
                 <div class="row">
                     <div class="col-md-6">
@@ -94,28 +94,28 @@ $('.wrap-count-4').mousePressCounter();</pre>
                         </div>
                     </div>
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 
-	<script src="dist/jquery.2.2.4.min.js"></script>
-	<script src="dist/mousePressCounter.min.js"></script>
-	<script>
-		$('.wrap-count-1').mousePressCounter({
-			inc: '.number-inc',
-			dec: '.number-dec',
-			counter: '.number-input',
-			min: 5,
-			max: 100
+    <script src="dist/jquery.2.2.4.min.js"></script>
+    <script src="dist/mousePressCounter.min.js"></script>
+    <script>
+        $('.wrap-count-1').mousePressCounter({
+            inc: '.number-inc',
+            dec: '.number-dec',
+            counter: '.number-input',
+            min: 5,
+            max: 100
         });
         $('.wrap-count-2').mousePressCounter({
-			timeStep: 0
-		});
-		$('.wrap-count-3').mousePressCounter({
-			timeStep: 10
-		});
+            timeStep: 0
+        });
+        $('.wrap-count-3').mousePressCounter({
+            timeStep: 10
+        });
         $('.wrap-count-4').mousePressCounter();
-	</script>
+    </script>
 </body>
 
 </html>
