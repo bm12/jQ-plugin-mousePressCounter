@@ -86,7 +86,7 @@ body {
 
 .example__title {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 22px;
 }
 .example:first-child .example__title {
     margin-top: 0;
